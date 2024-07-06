@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from "react";
-import { LuMousePointer2 } from "react-icons/lu";
+// import { LuMousePointer2 } from "react-icons/lu";
 import "./Home.css";
 import ProductCard from "./ProductCard.js";
 import MetaData from "../layout/MetaData";

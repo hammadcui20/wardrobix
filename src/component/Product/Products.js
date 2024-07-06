@@ -5,7 +5,7 @@ import { clearErrors, getProduct } from "../../actions/productAction";
 import Loader from "../layout/Loader/Loader";
 import ProductCard from "../Home/ProductCard";
 import Pagination from "react-js-pagination";
-import Slider from "@material-ui/core/Slider";
+// import Slider from "@material-ui/core/Slider";
 import { useAlert } from "react-alert";
 import Typography from "@material-ui/core/Typography";
 import MetaData from "../layout/MetaData";
@@ -27,6 +27,7 @@ const Products = ({ match }) => {
   const [category, setCategory] = useState("");
 
   const [ratings, setRatings] = useState(0);
+  setRatings(0);
 
   const {
     products,
@@ -43,9 +44,9 @@ const Products = ({ match }) => {
     setCurrentPage(e);
   };
 
-  const priceHandler = (event, newPrice) => {
-    setPrice(newPrice);
-  };
+  // const priceHandler = (event, newPrice) => {
+  //   setPrice(newPrice);
+  // };
   let count = filteredProductsCount;
 
   useEffect(() => {

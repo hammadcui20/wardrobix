@@ -1,8 +1,8 @@
 // ETailorForm.js
 
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { useDispatch } from "react-redux";
-import { useLocation,useHistory, useParams } from "react-router-dom";
+import { useLocation, } from "react-router-dom";
 import { addItemsToCart } from "../../actions/cartAction";
 import { useAlert } from "react-alert";
 
@@ -15,7 +15,8 @@ const ETailorForm = () => {
   const product = state ? state.product : null;
 
   const [quantity, setQuantity] = useState(1);
-
+  // New Added 1
+  setQuantity(1);
   const [measurements, setMeasurements] = useState({
     chest: "",
     arms: "",

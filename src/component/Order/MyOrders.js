@@ -79,7 +79,7 @@ const MyOrders = () => {
   useEffect(() => {
     if (error) {
       alert.error(error);
-      dispatch(clearErrors());
+      // dispatch(clearErrors());
     }
 
     dispatch(myOrders());

@@ -1,23 +1,23 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { MdOutlineShoppingCart } from "react-icons/md";
+// import { MdOutlineShoppingCart } from "react-icons/md";
 import {
   Container,
   Wrapper,
   Left,
   NavLink,
-  Center,
-  Logo,
+  // Center,
+  // Logo,
   Right,
-  Quantity,
-  QuantityContainer,
-  QuantityIcon,
+  // Quantity,
+  // QuantityContainer,
+  // QuantityIcon,
   RegisterLink,
 } from "./Navbar.styles.js";
 
 const Navbar = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
-  const quantity = useSelector((state) => state.cart.quantity);
+  // const quantity = useSelector((state) => state.cart.quantity);
 
   return (
     <>
