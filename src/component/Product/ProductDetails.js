@@ -21,6 +21,7 @@ import {
 } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
+import img2 from '../../images/men-women-size-chart-image.png';
 
 const ProductDetails = ({ match }) => {
   const dispatch = useDispatch();
@@ -159,6 +160,7 @@ const ProductDetails = ({ match }) => {
 
               <div className="detailsBlock-4">
                 Description : <p>{product.description}</p>
+                Size Chart : <img src={img2} alt="size-chart" width={550} />
               </div>
 
               <button onClick={submitReviewToggle} className="submitReview">
