@@ -59,10 +59,8 @@ function App() {
       // const { data } = await axios.get('http://localhost:4000/api/v1/stripeapikey', {
       //   withCredentials: true
       // });
-      const { data } = await axios.get('https://backend-ward-4.onrender.com/api/v1/stripeapikey', {
-        withCredentials: true
-      });
-
+      const { data } = await axios.get('https://backend-ward-4.onrender.com/api/v1/stripeapikey');
+      console.log(data.stripeApiKey);
       setStripeApiKey(data.stripeApiKey);
     } catch (error) {
       console.error("Error fetching Stripe API key:", error);
