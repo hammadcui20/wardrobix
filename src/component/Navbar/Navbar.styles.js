@@ -107,7 +107,7 @@ export const Quantity = styled.span`
   position: absolute;
   top: -0.5rem;
   right: -0.5rem;
-  display: PKR{(props) => (props.quantity > 0 ? "grid" : "none")};
+  display: ${(props) => (props.quantity > 0 ? "grid" : "none")};
   place-items: center;
   user-select: none;
 `;
