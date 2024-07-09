@@ -132,8 +132,6 @@ function App() {
         <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
 
         <ProtectedRoute
-          isAdmin={true}
-          exact
           path="/admin/dashboard"
           component={Dashboard}
         />

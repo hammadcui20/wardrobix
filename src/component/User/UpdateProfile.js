@@ -61,7 +61,7 @@ const UpdateProfile = ({ history }) => {
       alert.success("Profile Updated Successfully");
       dispatch(loadUser());
 
-      history.push("/account");
+      history.push("/");
 
       dispatch({
         type: UPDATE_PROFILE_RESET,

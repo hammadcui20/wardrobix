@@ -38,7 +38,6 @@ import {
 } from "../constants/userConstants";
 import axios from "axios";
 import { API_BASE } from "../images/lib/constants";
-
 // Login
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -87,9 +86,8 @@ export const register = (userData) => async (dispatch) => {
 // Load User
 export const loadUser = () => async (dispatch) => {
   try {
-    // dispatch({ type: LOAD_USER_REQUEST });
+    dispatch({ type: LOAD_USER_REQUEST });
     const { data } = await axios.get(`${API_BASE}/api/v1/me`);
-    console.log(data);
     dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
