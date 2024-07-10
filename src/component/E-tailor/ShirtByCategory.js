@@ -14,7 +14,7 @@ const ShirtByCategory = () => {
   useEffect(() => {
     const fetchShirtsByCategory = async () => {
       try {
-        // const response = await axios.get(`http://localhost:4000/api/v1/shirts/category/${category}`);
+        // const response = await axios.get(`http://localhost:8000/api/v1/shirts/category/${category}`);
         const response = await axios.get(`https://backend-ward-4.onrender.com/api/v1/shirts/category/${category}`);
         setShirts(response.data.data);
 
