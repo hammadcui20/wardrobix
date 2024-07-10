@@ -12,7 +12,7 @@ const TryOnProducts = ({ product }) => {
 
   const handleClick = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/try-on', {
+      const response = await axios.post('https://model-z7ix.onrender.com/try-on', {
         image_path: product.images[0].url
       });
       console.log(response.data);
