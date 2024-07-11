@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Test</title>
+</head>
+<body>
+    <h1>WebSocket Test</h1>
+    <button id="start">Start Streaming</button>
+    <button id="stop">Stop Streaming</button>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        let socket;
+        document.getElementById('start').addEventListener('click', () => {
+            socket = io('http://localhost:5000');
+
+            socket.on('connect', () => {
+                console.log('WebSocket connection established');
+                sendFrame();
+            });
+
+            socket.on('stream', (data) => {
+                const image = new Image();
+                image.src = data;
+                image.onload = () => {
+                    const canvas = document.getElementById('canvas');
+                    const context = canvas.getContext('2d');
+                    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+                };
+            });
+
+            socket.on('disconnect', () => {
+                console.log('WebSocket connection closed');
+            });
+        });
+
+        document.getElementById('stop').addEventListener('click', () => {
+            if (socket) {
+                socket.disconnect();
+            }
+        });
+
+        function sendFrame() {
+            const canvas = document.getElementById('canvas');
+            const context = canvas.getContext('2d');
+            context.fillStyle = "red";
+            context.fillRect(0, 0, canvas.width, canvas.height);  // Create a red frame for testing
+            const frame = canvas.toDataURL("image/jpeg");
+            if (socket && socket.connected) {
+                socket.emit('stream', frame);
+                setTimeout(sendFrame, 1000);  // Send frame every second
+            }
+        }
+    </script>
+</body>
+</html>

@@ -94,6 +94,7 @@ const OrderList = ({ history }) => {
             </Link>
 
             <Button
+            className="button"
               onClick={() =>
                 deleteOrderHandler(params.getValue(params.id, "id"))
               }

@@ -56,12 +56,12 @@ function App() {
 
   async function getStripeApiKey() {
     try {
-      // const { data } = await axios.get('http://localhost:8000/api/v1/stripeapikey', {
-      //   withCredentials: true
-      // });
       const { data } = await axios.get('https://backend-ward-4.onrender.com/api/v1/stripeapikey', {
         withCredentials: true
       });
+      // const { data } = await axios.get('https://backend-ward-4.onrender.com/api/v1/stripeapikey', {
+      //   withCredentials: true
+      // });
 
       setStripeApiKey(data.stripeApiKey);
     } catch (error) {

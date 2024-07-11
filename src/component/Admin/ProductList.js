@@ -91,6 +91,7 @@ const ProductList = ({ history }) => {
             </Link>
 
             <Button
+            className="button"
               onClick={() =>
                 deleteProductHandler(params.getValue(params.id, "id"))
               }

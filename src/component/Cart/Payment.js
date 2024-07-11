@@ -112,6 +112,11 @@ const Payment = ({ history }) => {
     }
   };
 
+  const handleCashOnDelivery = () => {
+    dispatch(createOrder(order));
+    history.push("/success");
+  };
+
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -145,6 +150,14 @@ const Payment = ({ history }) => {
             ref={payBtn}
             className="paymentFormBtn"
           />
+
+          <button
+            type="button"
+            onClick={handleCashOnDelivery}
+            className="button"
+          >
+            Cash on Delivery
+          </button>
         </form>
       </div>
     </Fragment>

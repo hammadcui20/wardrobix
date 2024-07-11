@@ -6,6 +6,7 @@ import { addItemsToCart, removeItemsFromCart } from "../../actions/cartAction";
 import { Typography } from "@material-ui/core";
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
 import { Link } from "react-router-dom";
+import Navbar from '../Navbar/Navbar'; // Import Navbar component
 
 const Cart = ({ history }) => {
   const dispatch = useDispatch();
@@ -37,10 +38,10 @@ const Cart = ({ history }) => {
 
   return (
     <Fragment>
+      <Navbar /> {/* Include Navbar here */}
       {cartItems.length === 0 ? (
         <div className="emptyCart">
           <RemoveShoppingCartIcon />
-
           <Typography>No Product in Your Cart</Typography>
           <Link to="/products">View Products</Link>
         </div>
@@ -59,6 +60,7 @@ const Cart = ({ history }) => {
                   <CartItemCard item={item} deleteCartItems={deleteCartItems} />
                   <div className="cartInput">
                     <button
+                    className="button"
                       onClick={() =>
                         decreaseQuantity(item.product, item.quantity)
                       }
@@ -67,6 +69,7 @@ const Cart = ({ history }) => {
                     </button>
                     <input type="number" value={item.quantity} readOnly />
                     <button
+                    className="button"
                       onClick={() =>
                         increaseQuantity(
                           item.product,
@@ -95,7 +98,7 @@ const Cart = ({ history }) => {
               </div>
               <div></div>
               <div className="checkOutBtn">
-                <button onClick={checkoutHandler}>Check Out</button>
+                <button className="button" onClick={checkoutHandler}>Check Out</button>
               </div>
             </div>
           </div>

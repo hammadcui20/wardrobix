@@ -126,7 +126,7 @@ const ETailorForm = () => {
               </label>
             </div>
           </div>
-          <button type="submit" style={styles.button}>
+          <button type="submit" style={styles.button} className="button">
             Add to Cart
           </button>
         </form>

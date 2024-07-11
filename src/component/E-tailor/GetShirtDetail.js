@@ -276,8 +276,8 @@ const GetShirtDetail = () => {
 
     try {
       const requestData = { ...formData };
-      // await axios.post(`http://localhost:4000/api/v1/shirt/${shirtId}/request`, requestData);
       await axios.post(`https://backend-ward-4.onrender.com/api/v1/shirt/${shirtId}/request`, requestData);
+      // await axios.post(`https://backend-ward-4.onrender.com/api/v1/shirt/${shirtId}/request`, requestData);
 
       // Reset form data and set formSubmitted to true
       setFormData({
@@ -318,10 +318,10 @@ const GetShirtDetail = () => {
               Price: {shirt.price}
             </Card.Text>
             {!formSubmitted && (
-              <Button variant="primary" onClick={() => setShowForm(true)}>Submit Request</Button>
+              <Button  className="button" variant="primary" onClick={() => setShowForm(true)}>Submit Request</Button>
             )}
             {formSubmitted && (
-              <Button variant="success">Add to Cart</Button>
+              <Button  className="button" variant="success">Add to Cart</Button>
             )}
           </Card.Body>
         </Card>
@@ -349,7 +349,7 @@ const GetShirtDetail = () => {
                 <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
             </Row>
-            <Button type="submit">Submit</Button>
+            <Button className="button" type="submit">Submit</Button>
           </Form>
         </div>
       )}

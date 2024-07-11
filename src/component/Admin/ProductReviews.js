@@ -103,6 +103,7 @@ const ProductReviews = ({ history }) => {
         return (
           <Fragment>
             <Button
+            className="button"
               onClick={() =>
                 deleteReviewHandler(params.getValue(params.id, "id"))
               }
@@ -154,6 +155,7 @@ const ProductReviews = ({ history }) => {
             <Button
               id="createProductBtn"
               type="submit"
+              className="button"
               disabled={
                 loading ? true : false || productId === "" ? true : false
               }

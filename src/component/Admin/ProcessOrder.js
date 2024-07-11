@@ -177,6 +177,7 @@ const ProcessOrder = ({ history, match }) => {
                   <Button
                     id="createProductBtn"
                     type="submit"
+                    className="button"
                     disabled={
                       loading ? true : false || status === "" ? true : false
                     }

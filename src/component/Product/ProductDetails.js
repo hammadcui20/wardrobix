@@ -18,10 +18,15 @@ import {
   DialogContent,
   DialogTitle,
   Button,
+  FormControl,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
 } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
-import img2 from '../../images/men-women-size-chart-image.png';
+import img2 from "../../images/men-women-size-chart-image.png";
+import Navbar from "../Navbar/Navbar";
 
 const ProductDetails = ({ match }) => {
   const dispatch = useDispatch();
@@ -46,6 +51,7 @@ const ProductDetails = ({ match }) => {
   const [open, setOpen] = useState(false);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
+  const [size, setSize] = useState(""); // State for size selection
 
   const increaseQuantity = () => {
     if (product.Stock <= quantity) return;
@@ -62,12 +68,12 @@ const ProductDetails = ({ match }) => {
   };
 
   const addToCartHandler = () => {
-    dispatch(addItemsToCart(match.params.id, quantity));
+    dispatch(addItemsToCart(match.params.id, quantity, size)); // Pass size to addToCartHandler
     alert.success("Item Added To Cart");
   };
 
   const submitReviewToggle = () => {
-    open ? setOpen(false) : setOpen(true);
+    setOpen(!open); // Toggle the state to open/close the dialog
   };
 
   const reviewSubmitHandler = () => {
@@ -79,7 +85,7 @@ const ProductDetails = ({ match }) => {
 
     dispatch(newReview(myForm));
 
-    setOpen(false);
+    setOpen(false); // Close the dialog after submitting review
   };
 
   useEffect(() => {
@@ -102,6 +108,7 @@ const ProductDetails = ({ match }) => {
 
   return (
     <Fragment>
+      <Navbar />
       {loading ? (
         <Loader />
       ) : (
@@ -142,9 +149,44 @@ const ProductDetails = ({ match }) => {
                     <input readOnly type="number" value={quantity} />
                     <button onClick={increaseQuantity}>+</button>
                   </div>
+                  <FormControl component="fieldset" className="sizeSelect">
+                    <RadioGroup
+                      aria-label="size"
+                      name="size"
+                      value={size}
+                      onChange={(e) => setSize(e.target.value)}
+                    >
+                      <FormControlLabel
+                        value="XS"
+                        control={<Radio />}
+                        label="XS"
+                      />
+                      <FormControlLabel
+                        value="S"
+                        control={<Radio />}
+                        label="S"
+                      />
+                      <FormControlLabel
+                        value="M"
+                        control={<Radio />}
+                        label="M"
+                      />
+                      <FormControlLabel
+                        value="L"
+                        control={<Radio />}
+                        label="L"
+                      />
+                      <FormControlLabel
+                        value="XL"
+                        control={<Radio />}
+                        label="XL"
+                      />
+                    </RadioGroup>
+                  </FormControl>
                   <button
                     disabled={product.Stock < 1 ? true : false}
                     onClick={addToCartHandler}
+                    className="button"
                   >
                     Add to Cart
                   </button>
@@ -152,7 +194,11 @@ const ProductDetails = ({ match }) => {
 
                 <p>
                   Status:
-                  <b className={product.Stock < 1 ? "redColor" : "greenColor"}>
+                  <b
+                    className={
+                      product.Stock < 1 ? "redColor" : "greenColor"
+                    }
+                  >
                     {product.Stock < 1 ? "OutOfStock" : "InStock"}
                   </b>
                 </p>
@@ -160,7 +206,8 @@ const ProductDetails = ({ match }) => {
 
               <div className="detailsBlock-4">
                 Description : <p>{product.description}</p>
-                Size Chart : <img src={img2} alt="size-chart" width={550} />
+                Size Chart :{" "}
+                <img src={img2} alt="size-chart" width={550} />
               </div>
 
               <button onClick={submitReviewToggle} className="submitReview">

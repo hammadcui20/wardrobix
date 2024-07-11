@@ -93,6 +93,7 @@ const UsersList = ({ history }) => {
             </Link>
 
             <Button
+            className="button"
               onClick={() =>
                 deleteUserHandler(params.getValue(params.id, "id"))
               }

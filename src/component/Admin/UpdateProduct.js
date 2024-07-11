@@ -219,6 +219,7 @@ const UpdateProduct = ({ history, match }) => {
             </div>
 
             <Button
+            className="button"
               id="createProductBtn"
               type="submit"
               disabled={loading ? true : false}

@@ -173,6 +173,7 @@ const NewProduct = ({ history }) => {
               id="createProductBtn"
               type="submit"
               disabled={loading ? true : false}
+              className="button"
             >
               Create
             </Button>
