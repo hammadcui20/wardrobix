@@ -22,7 +22,7 @@ const TryOnProducts = ({ product }) => {
       formData.append('image_path', product.images[0].url);
       formData.append('user_image', userImage);
       
-      const response = await axios.post('http://localhost:5000/try-on', formData, {
+      const response = await axios.post('https://model-z7ix.onrender.com/try-on', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
