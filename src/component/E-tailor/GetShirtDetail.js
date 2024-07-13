@@ -257,7 +257,7 @@ const GetShirtDetail = () => {
   useEffect(() => {
     const fetchShirtDetail = async () => {
       try {
-        const response = await axios.get(`https://backend-ward-4.onrender.com/api/v1/shirts/${shirtId}`);
+        const response = await axios.get(`http://localhost:8000/api/v1/shirts/${shirtId}`);
         setShirt(response.data.data);
       } catch (error) {
         console.error('Error fetching shirt detail:', error);

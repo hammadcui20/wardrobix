@@ -149,40 +149,7 @@ const ProductDetails = ({ match }) => {
                     <input readOnly type="number" value={quantity} />
                     <button onClick={increaseQuantity}>+</button>
                   </div>
-                  <FormControl component="fieldset" className="sizeSelect">
-                    <RadioGroup
-                      aria-label="size"
-                      name="size"
-                      value={size}
-                      onChange={(e) => setSize(e.target.value)}
-                    >
-                      <FormControlLabel
-                        value="XS"
-                        control={<Radio />}
-                        label="XS"
-                      />
-                      <FormControlLabel
-                        value="S"
-                        control={<Radio />}
-                        label="S"
-                      />
-                      <FormControlLabel
-                        value="M"
-                        control={<Radio />}
-                        label="M"
-                      />
-                      <FormControlLabel
-                        value="L"
-                        control={<Radio />}
-                        label="L"
-                      />
-                      <FormControlLabel
-                        value="XL"
-                        control={<Radio />}
-                        label="XL"
-                      />
-                    </RadioGroup>
-                  </FormControl>
+                  
                   <button
                     disabled={product.Stock < 1 ? true : false}
                     onClick={addToCartHandler}
@@ -191,7 +158,46 @@ const ProductDetails = ({ match }) => {
                     Add to Cart
                   </button>
                 </div>
-
+                <FormControl component="fieldset" className="sizeSelect">
+                    <RadioGroup
+                      aria-label="size"
+                      name="size"
+                      value={size}
+                      onChange={(e) => setSize(e.target.value)}
+                      style={{ display: 'flex', flexDirection: 'row' }}
+                    >
+                      <FormControlLabel
+                        value="XS"
+                        control={<Radio />}
+                        label="XS"
+                        style={{ marginRight: 10 }}
+                      />
+                      <FormControlLabel
+                        value="S"
+                        control={<Radio />}
+                        label="S"
+                        style={{ marginRight: 10 }}
+                      />
+                      <FormControlLabel
+                        value="M"
+                        control={<Radio />}
+                        label="M"
+                        style={{ marginRight: 10 }}
+                      />
+                      <FormControlLabel
+                        value="L"
+                        control={<Radio />}
+                        label="L"
+                        style={{ marginRight: 10 }}
+                      />
+                      <FormControlLabel
+                        value="XL"
+                        control={<Radio />}
+                        label="XL"
+                        style={{ marginRight: 10 }}
+                      />
+                    </RadioGroup>
+                  </FormControl>
                 <p>
                   Status:
                   <b
@@ -226,7 +232,7 @@ const ProductDetails = ({ match }) => {
             <DialogTitle>Submit Review</DialogTitle>
             <DialogContent className="submitDialog">
               <Rating
-                onChange={(e) => setRating(e.target.value)}
+                onChange={(e) => setRating(Number(e.target.value))}
                 value={rating}
                 size="large"
               />
@@ -249,12 +255,11 @@ const ProductDetails = ({ match }) => {
             </DialogActions>
           </Dialog>
 
-          {product.reviews && product.reviews[0] ? (
+          {product.reviews && product.reviews.length > 0 ? (
             <div className="reviews">
-              {product.reviews &&
-                product.reviews.map((review) => (
-                  <ReviewCard key={review._id} review={review} />
-                ))}
+              {product.reviews.map((review) => (
+                <ReviewCard key={review._id} review={review} />
+              ))}
             </div>
           ) : (
             <p className="noReviews">No Reviews Yet</p>
