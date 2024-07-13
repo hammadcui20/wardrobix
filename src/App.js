@@ -47,6 +47,7 @@ import MenShirts from "./component/E-tailor/MenShirts.js";
 import ETailorForm from "./component/E-tailor/ETailorForm.js";
 import TryOn from "./component/TryOn/Tryon.js";
 import TryOnShow from "./component/TryOn/TryOnShow.js";
+import ProcessedImage  from "./component/TryOn/ProcessedImage.js";
 import About from "./component/layout/About/About.js";
 
 function App() {
@@ -59,7 +60,7 @@ function App() {
       const { data } = await axios.get('https://backend-ward-4.onrender.com/api/v1/stripeapikey', {
         withCredentials: true
       });
-      // const { data } = await axios.get('https://backend-ward-4.onrender.com/api/v1/stripeapikey', {
+      // const { data } = await axios.get('http://localhost:8000/api/v1/stripeapikey', {
       //   withCredentials: true
       // });
 
@@ -114,7 +115,7 @@ function App() {
         <Route exact path='/etailor-form' component={ETailorForm} />
         <Route exact path='/tryon' component={TryOn}/>
         <Route exact path='/tryon/show' component={TryOnShow}/>
-
+        <Route path="/processed-image" component={ProcessedImage} />
         <ProtectedRoute
           exact
           path="/password/update"

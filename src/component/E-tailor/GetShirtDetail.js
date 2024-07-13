@@ -277,7 +277,7 @@ const GetShirtDetail = () => {
     try {
       const requestData = { ...formData };
       await axios.post(`https://backend-ward-4.onrender.com/api/v1/shirt/${shirtId}/request`, requestData);
-      // await axios.post(`https://backend-ward-4.onrender.com/api/v1/shirt/${shirtId}/request`, requestData);
+      // await axios.post(`http://localhost:8000/api/v1/shirt/${shirtId}/request`, requestData);
 
       // Reset form data and set formSubmitted to true
       setFormData({
