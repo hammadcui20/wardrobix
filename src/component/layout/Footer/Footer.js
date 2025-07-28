@@ -30,7 +30,7 @@ const Footer = () => {
       <div className="midFooter">
         <h1>Wardrobix.</h1>
         <p>High Quality is our first priority</p>
-        <p>Copyrights 2024 &copy; CUST</p>
+        <p>Copyrights 2025 @Ayesha, Fatima Munawar</p>
       </div>
 
       <div className="rightFooter">
