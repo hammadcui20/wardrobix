@@ -69,3 +69,5 @@ const store = createStore(
 );
 
 export default store;
+
+// Add new comment
